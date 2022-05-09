@@ -21,7 +21,6 @@
 #include "Logger.hpp"
 #include "RTC/RtpPacket.hpp"
 
-#include <absl/memory/memory.h>
 #include <algorithm>
 #include <utility>
 
@@ -44,7 +43,7 @@ PacedSender::PacedSender(PacketRouter* packet_router,
                          const WebRtcKeyValueConfig* field_trials)
     : packet_router_(packet_router),
       fallback_field_trials_(
-          !field_trials ? absl::make_unique<FieldTrialBasedConfig>() : nullptr),
+          !field_trials ? std::make_unique<FieldTrialBasedConfig>() : nullptr),
       field_trials_(field_trials ? field_trials : fallback_field_trials_.get()),
       min_packet_limit_ms_("", kDefaultMinPacketLimitMs),
       paused_(false),

@@ -17,7 +17,6 @@
 #include "DepLibUV.hpp"
 #include "Logger.hpp"
 
-#include <absl/memory/memory.h>
 #include <cstdint>
 #include <cstdio>
 

@@ -10,8 +10,6 @@
 
 #include "api/transport/goog_cc_factory.h"
 #include "modules/congestion_controller/goog_cc/goog_cc_network_control.h"
-
-#include <absl/memory/memory.h>
 #include <utility>
 
 namespace webrtc {
@@ -40,7 +38,7 @@ GoogCcNetworkControllerFactory::Create(NetworkControllerConfig config) {
         factory_config_.network_state_predictor_factory
             ->CreateNetworkStatePredictor();
   }
-  return absl::make_unique<GoogCcNetworkController>(config,
+  return std::make_unique<GoogCcNetworkController>(config,
                                                     std::move(goog_cc_config));
 }
 

@@ -23,7 +23,6 @@
 #include "Logger.hpp"
 #include "RTC/RTCP/FeedbackRtpTransport.hpp"
 
-#include <absl/memory/memory.h>
 #include <absl/types/optional.h>
 #include <utility>
 #include <vector>
@@ -255,7 +254,7 @@ void RtpTransportControllerSend::MaybeCreateControllers() {
   MS_ASSERT(!controller_, "controller already set");
   MS_ASSERT(!control_handler_, "controller handler already set");
 
-  control_handler_ = absl::make_unique<CongestionControlHandler>();
+  control_handler_ = std::make_unique<CongestionControlHandler>();
 
   initial_config_.constraints.at_time =
       Timestamp::ms(DepLibUV::GetTimeMsInt64());
