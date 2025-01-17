@@ -6,7 +6,7 @@
 namespace mediasoup
 {
 
-class Logger : public mediasoup::Singleton<Logger> {
+class Logger : public Singleton<Logger> {
 public:
     Logger();
     ~Logger();

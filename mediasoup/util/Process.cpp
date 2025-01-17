@@ -7,21 +7,22 @@ namespace mediasoup
 
 Process::Process() {
 	MS_lOGF();
-	int ret = uv_os_environ(&m_envItem, &m_envCount);
+	uv_env_item_t* envItem = nullptr;
+	int envCount = 0;
+	int ret = uv_os_environ(&envItem, &envCount);
 	MS_ASSERT_R_LOGE(0 == ret, "uv_os_environ failed:{}", ret);
-
-	for (int i = 0; i < m_envCount; i++) {
-		m_mapEnvs[m_envItem[i].name] = m_envItem[i].value;
+	if (envItem) {
+		for (int i = 0; i < envCount; i++) {
+			m_mapEnvs[envItem[i].name] = envItem[i].value;
+		}
+		uv_os_free_environ(envItem, envCount);
+		envItem = nullptr;
+		envCount = 0;
 	}
 }
 
 Process::~Process() {
 	MS_lOGF();
-	if (m_envItem) {
-		uv_os_free_environ(m_envItem, m_envCount);
-		m_envItem = nullptr;
-		m_envCount = 0;
-	}
 	m_mapEnvs.clear();
 }
 

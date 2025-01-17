@@ -62,7 +62,7 @@ private:
 	bool m_isClosedByPeer = false;
 	bool m_hasError = false;
 
-	UVPipeWrapper::Role m_role = Role::CONSUMER;
+	Role m_role = Role::CONSUMER;
 };
 
 }

@@ -18,8 +18,7 @@ public:
 	const std::string& ExePath();
 
 private:
-	uv_env_item_t* m_envItem = nullptr;
-	int m_envCount = 0;
+
 	std::map<std::string, std::string> m_mapEnvs;
 	std::string m_emptyEnv = "";
 	std::string m_exePath = "";

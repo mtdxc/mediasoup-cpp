@@ -85,7 +85,7 @@ bool UVPipeWrapper::Start() {
 	MS_lOGF();
 	MS_ASSERT_RV_LOGE(m_uvHandle, false, "no init");
 	
-	if (UVPipeWrapper::Role::CONSUMER == m_role) {
+	if (Role::CONSUMER == m_role) {
 		// Start reading.
 		int ret = uv_read_start(reinterpret_cast<uv_stream_t*>(m_uvHandle),
 			static_cast<uv_alloc_cb>(StaticOnAllocCB),

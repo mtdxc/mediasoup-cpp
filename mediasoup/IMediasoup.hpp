@@ -7,17 +7,17 @@ namespace mediasoup
 {
 
 class IMediasoup {
-    public:
-    virtual ~IMediasoup() {}
+  public:
+      virtual ~IMediasoup() {}
 
-    virtual void Test() = 0;
-	  virtual bool Init() = 0;
-    virtual void Destroy() = 0;
+      virtual void Test() = 0;
+      virtual bool Init() = 0;
+      virtual void Destroy() = 0;
 
 	  /**
 	   * Create a Worker.
 	   */
-    virtual IWorker* CreateWorker(IWorker::Observer* workerObserver, const WorkerSettings& workerSettings) = 0;
+      virtual IWorker* CreateWorker(IWorker::Observer* workerObserver, const WorkerSettings& workerSettings) = 0;
 
 	  /**
 	   * Get a cloned copy of the mediasoup supported RTP capabilities.
@@ -25,8 +25,8 @@ class IMediasoup {
 	  virtual RtpCapabilities GetSupportedRtpCapabilities() = 0;
 };
 
-mediasoup::IMediasoup* CreateMediasoup();
+IMediasoup* CreateMediasoup();
 
-void DestroyMediasoup(mediasoup::IMediasoup* mediasoup);
+void DestroyMediasoup(IMediasoup* mediasoup);
 
 }

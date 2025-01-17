@@ -11,12 +11,13 @@ public:
 		std::cout << "++++++:OnSuccess" << std::endl;
 	}
 	void OnFailure(std::string error) override {
-		std::cout << "++++++:OnFailure" << std::endl;
+		std::cout << "++++++:OnFailure " << error << std::endl;
 	}
 	void OnClose() override {
 		std::cout << "++++++:OnClose" << std::endl;
 	}
 };
+
 int main(int argc, char *argv[])
 {   
     mediasoup::IMediasoup* mediasoup = mediasoup::CreateMediasoup();

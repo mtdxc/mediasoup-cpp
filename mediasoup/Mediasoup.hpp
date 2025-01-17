@@ -8,7 +8,7 @@
 namespace mediasoup
 {
 
-class Mediasoup : public IMediasoup, public mediasoup::Singleton<Mediasoup> {
+class Mediasoup : public IMediasoup, public Singleton<Mediasoup> {
 public:
     Mediasoup();
     virtual ~Mediasoup();

@@ -9,12 +9,12 @@ using namespace promise;
 namespace mediasoup
 {
 
-mediasoup::IMediasoup* CreateMediasoup() {
+IMediasoup* CreateMediasoup() {
     MS_lOGF();
-    return &mediasoup::Mediasoup::GetInstance();
+    return &Mediasoup::GetInstance();
 }
 
-void DestroyMediasoup(mediasoup::IMediasoup* mediasoup) {
+void DestroyMediasoup(IMediasoup* mediasoup) {
     MS_lOGF();
     if (!mediasoup) {
         return;
